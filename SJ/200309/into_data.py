@@ -5,9 +5,9 @@ con = pymysql.connect(host="192.168.0.37", user="root", password="1234",
 
 cur = con.cursor()
  
-sql="create table goods_test(" \
+sql="create table goods_ex(" \
     "num int," \
-    "goods varchar(20)," \
+    "goods_name varchar(20)," \
     "price int," \
     "primary key (num))"
  
