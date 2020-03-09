@@ -1,0 +1,77 @@
+03.03
+20:00 파이캠 관련 예제 소스 이용해서 사진 찍음
+20:30 블루투스 관련 라이브러리 전부 다운로드
+21:00 예제 검색 및 블루 텀 다운로드
+
+03.04
+16:40 블루투스 페어링 시도 실패
+블루 텀에서 not connected
+
+20:50 블루투스 페어링 시도 성공, 블루투스 연결 실패
+라파에서 Failed to connect: org.bluez.Error.Failed
+
+gdbus.error.org.bluez.error.failed protocol not available 오류/ 검색
+https://viewise.tistory.com/entry/%EB%9D%BC%EC%A6%88%EB%B2%A0%EB%A6%AC%ED%8C%8C%EC%9D%B4-%EC%9D%8C%EC%84%B1%EC%9D%B8%EC%8B%9D-%EB%B8%94%EB%A3%A8%ED%88%AC%EC%8A%A4-%EC%8A%A4%ED%94%BC%EC%BB%A4-%EC%97%B0%EA%B2%B0
+사이트에서 해결 방안 찾는중
+
+pi@raspberrypi:~systemctl start bluetooth
+
+pi@raspberrypi:~ $ hciconfig hci0 up
+
+Can't init device hci0: Operation not permitted (1)
+
+pi@raspberrypi:~ $ sudo hciconfig hci0 up
+
+해결 방안중에 명령어가 있었는데 안먹길래 sudo로 먹여버림/ 안됨
+
+궁금해서 어제 파이캠으로 찍은 사진 휴대폰으로 파일 전송 눌러봄
+파일 밀어넣기 방식으로 잘 보내짐/ 파일 전송 후 다시 연결이 해제됨/
+라파 페이지에서 공부 좀 함
+
+https://www.raspberrypi.org/forums/viewtopic.php?t=152143
+pi@raspberrypi:~ $ sudo vim /etc/systemd/system/dbus-org.bluez.service
+ / 무서워서 못고치겠음
+22:00 bluez 3.5 최신 버젼으로 강제 업그레이드
+23:00 노트북이랑 페어링 성공, 사진 보내기는 실패
+
+03.05
+-누락-
+21:30 블루투스 안하기로함, 소켓 통신을 쓰기로함
+22:00 open cv 설치 시작!
+
+03.06
+15:30 open cv2 import 에러 
+/usr/local/lib/python3.7/dist-packages/cv2/cv2.cpython-37m-arm-linux-gnueabihf.so: undefined symbol: __atomic_fetch_add_8
+https://stackoverflow.com/questions/21530577/fatal-error-python-h-no-such-file-or-directory
+여기도 참고
+https://diy-project.tistory.com/86
+https://webnautes.tistory.com/916
+https://github.com/piwheels/packages/issues/59
+
+16:00 open cv cuda 이슈 솔루션 
+https://docs.opencv.org/trunk/d6/d15/tutorial_building_tegra_cuda.html /픽스, 오류창 하나 줄어듦 아직 안됨
+17:00 .bashrc 경로를 수정했다. 
+/usr/local/lib/python3.7/site-packages/cv2 원래 경로
+cv2.cpython-37m-arm-linux-gnueabihf.so 원래 이름
+https://kldp.org/node/5325 고치는법/안됨
+
+03.08
+19:00 open cv2가 안되서 opencv4를 받아보려고 생각했었음./
+20:00 opencv가 안될때를 대비해서 qr코드 리더기 아이쇼핑./5만원
+21:00 open cv2 라이브러리를 파이썬 3.7 라이브러리 폴더에 직접 복사했다./ 안됨
+전에 .bashrc 경로를 지정해준것이 다른 소스코드에 영향을 일으켜서 삭제했다.
+23:00 git server 구축을 위해서 공부, 깃허브 가입
+61940195+galaxy-penguin@users.noreply.github.com
+23:30 80071A91 넷 프레임워크 오류코드가 떠서 포기.
+
+03.09
+11:00 open cv2 import 성공
+라즈베리파이에서 기본적으로 제공하던 토니 파이썬이 새로운 라이브러리를 인식하지 못했었다.
+vim에서 코드 수정후 python barscannertest02.py 형태로 실행 했더니 잘된다.
+14:00 구축된 git server를 clone 해왔다.
+14:30 라즈베리파이에 git clone 해옴
+git config --global user.name "galaxy-penguin"
+git config --global user.email "uncloud_le@naver.com"
+
+사용자 설정 완료, qr소스 코드 업로드
+
