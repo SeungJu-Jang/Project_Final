@@ -1,0 +1,28 @@
+install vim, ssh first
+
+https://diy-project.tistory.com/86
+install Cv2 and compile it
+cpu option make -j3 is best
+
+maybe python cant recognize [err code : import pyhon.h]
+https://stackoverflow.com/questions/21530577/fatal-error-python-h-no-such-file-or-directory
+https://askubuntu.com/questions/526708/fatal-error-python-h-no-file-or-directory
+have to install python lib
+sudo apt-get install python-dev
+sudo apt-get install python3-dev
+sudo apt-get install libpython3-dev
+sudo apt-get install libpython3.4-dev
+sudo apt-get install libpython3.5-dev
+
+Raspberry Pi have Cuda issue, require low cpu option
+have to change option with make -j1
+
+and install numpy
+sudo apt-get install libpython2.7-dev python-numpy
+
+and install zbar package
+sudo apt-get install libzbar0
+pip install pyzbar
+
+maybe Cv2 successfuly intalled
+
