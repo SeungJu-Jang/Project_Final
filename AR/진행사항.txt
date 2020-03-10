@@ -17,3 +17,7 @@
 			>해결 : app:srccompt으로 되어있던걸 android:src로 변경
 		>문제점 : xml 파일 제대로 연결 안 됨
 			>해결 : File -> InvaildedChachce 눌러서 재시작!
+3월 10일 진행사항 :
+	1. 안드로이드 상품 정보 확인, 재고 관리 UI 제작
+		>문제점 : gradle의 싱크가 안 맞는다는 오류 생김
+			>해결 : gradle 폴더를 지우고 InvaildedChache눌러 재시작
