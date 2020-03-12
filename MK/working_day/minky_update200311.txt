@@ -1,0 +1,19 @@
+3/6금~3/8일
+1. 작업 실패 : mysql에서 작성한 데이터 베이스를 메인 pc에 전달
+	실패 요인 : 보안 프로그램 제거, 방화벽 설정 해도 안됨.
+	방향성 : 기존 윈도우에서 리눅스 기반 데이터 베이스로 전환
+
+3/9월
+1. 프로젝트 계획서 작성
+2. [DB_to_PC.py] : mysql에서 작성한 데이터 베이스를 메인 pc에 전달
+3. pycharm, android studio설치
+
+3/10화
+1. pyqt5, qtdesiner 설치
+2. wamp 설치 실패 : 이유 알수없음. bitnami 설치로 전환
+
+3/11수
+1. bitnami, JDK, xampp설치
+2. [search.py] : PC 직원 검색 화면 UI
+	콤보박스, 이벤트 활용해서 실행까지 완료하기
+3. 작업 중 : android studio - phpmyadmin 연동
