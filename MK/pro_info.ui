@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>40</y>
+      <width>211</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>25</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>상품 정보</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QTableWidget" name="tableWidget">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>150</y>
+      <width>771</width>
+      <height>321</height>
+     </rect>
+    </property>
+    <row>
+     <property name="text">
+      <string>New Row</string>
+     </property>
+    </row>
+    <row>
+     <property name="text">
+      <string>New Row</string>
+     </property>
+    </row>
+    <row>
+     <property name="text">
+      <string>New Row</string>
+     </property>
+    </row>
+    <row>
+     <property name="text">
+      <string>New Row</string>
+     </property>
+    </row>
+    <row>
+     <property name="text">
+      <string>New Row</string>
+     </property>
+    </row>
+    <row>
+     <property name="text">
+      <string>New Row</string>
+     </property>
+    </row>
+    <row>
+     <property name="text">
+      <string>New Row</string>
+     </property>
+    </row>
+    <row>
+     <property name="text">
+      <string>New Row</string>
+     </property>
+    </row>
+    <column>
+     <property name="text">
+      <string>idproduct</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>brand</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>catalog</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>model</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>codenum</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>unitprice</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>inventory</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>shipment</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>sale_amount</string>
+     </property>
+    </column>
+    <item row="0" column="0">
+     <property name="text">
+      <string>1,1</string>
+     </property>
+    </item>
+    <item row="0" column="1">
+     <property name="text">
+      <string>1,2</string>
+     </property>
+    </item>
+    <item row="0" column="2">
+     <property name="text">
+      <string>2,3</string>
+     </property>
+    </item>
+    <item row="1" column="0">
+     <property name="text">
+      <string>2,1</string>
+     </property>
+    </item>
+    <item row="5" column="0">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>592</x>
+      <y>20</y>
+      <width>181</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Back</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>26</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
