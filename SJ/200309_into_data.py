@@ -1,15 +1,18 @@
 import pymysql
  
-con = pymysql.connect(host="192.168.0.25", user="root", password="1541",
+con = pymysql.connect(host="192.168.0.2", user="user", password="1234",
                        db='db1', charset='utf8')
 
-
 cur = con.cursor()
-sql="INSERT INTO goods(num, name, price, inventory) VALUES (%s, %s)"
-num=input()
-name=input()
-price=input()
-inventory=input()
+sql="create table person(" \
+    "id int," \
+    "pw varchar(20))"
+cur.execute(sql)
+con.commit()
+cur = con.cursor()
+sql="INSERT INTO person(id, pw) VALUES (%s, %s)"
+id=input()
+pw=input()
 cur.execute(sql,(num,name))
 con.commit()
 

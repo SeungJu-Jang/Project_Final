@@ -5,13 +5,17 @@ con = pymysql.connect(host="192.168.0.19", user="root", password="1234",
 
 cur = con.cursor()
  
-sql="create table goods(" \
+"""sql="create table goods(" \
     "num int," \
-    "goods_name varchar(20)," \
-    "inventory int)"
+    "name varchar(20))"
 cur.execute(sql)
 con.commit()
-cur = con.cursor()
+
 sql="select * distinct name goods"
 cur.execute(sql)
-con.commit()
+con.commit()"""
+
+
+sql="select * from person1"
+num = cur.execute(sql)
+print(num)
