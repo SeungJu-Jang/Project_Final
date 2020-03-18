@@ -1,0 +1,57 @@
+import sys
+import socket
+
+
+HOST = ''
+PORT = 8080
+
+s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+print('Socket created')
+try:
+    s.bind(('', 8080))
+except scoket.error as msg:
+    print('Bind Failed. Error code : ' + str(msg[0]) + ' Message: ' + msg[1])
+print('Bind success')
+s.listen(10)
+print('Socket now listening')
+flag = 0
+
+while True:
+    conn, addr = s.accept()
+
+    if flag == 0:
+        print(str(addr) + ' - Connection.')
+
+    data = conn.recv(1024)
+    print('\nReceive Data => ' + data.decode('utf_8'))
+
+    if not data:
+        print("It's unuseable Data!")
+        flag = 0
+    if data == 'exit':
+        print('Program Close!')
+        break
+
+
+    #receive data distinction
+    if data == 'hi':
+        conn.send("Nice too meet you".encode('utf_8'))
+        print('Send Data => Nice too meet you')
+
+    if data == 'motor stop' or data == 'MOTOR STOP':
+        conn.send('You select MOTOR STOP menu'.encode('utf_8'))
+        print('Send Data => You select MOTOR STOP menu')
+
+    if data == 'motor start' or data == 'MOTOR START':
+        conn.send('You select MOTOR START menu'.encode('utf_8'))
+        print('Send Data => You select MOTOR START menu')
+
+
+    #print('Receive Data => ' + data.decode('utf_8'))
+
+    else:
+        conn.send('SERVER Data'.encode('utf_8'))
+        print('Send Message!')
+    flag = 1
+
