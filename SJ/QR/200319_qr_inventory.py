@@ -16,6 +16,11 @@ data=[list(data_use) for data_use in cur.fetchall()]
 for j in range(numb):
     for i in range(0,1):
         inventory=data[j]
-    inventory[0]-=num
+    inventory[0]-=num #바코드 스캔시 감소되게 처리
 print(inventory[0])
+
+sql="update test1 set inventory=%s where goods_numb=%s" #초기 10 -1 한 9값을 재고에서 초기화 하는 부분
+cur.execute(sql,(inventory[0], goods))
+con.commit()
+con.close()
     
