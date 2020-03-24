@@ -3,7 +3,7 @@
 import socket
 import sys
 
-HOST = '192.168.0.144'
+HOST = '192.168.0.19'
 PORT = 8080
 
 while True:
