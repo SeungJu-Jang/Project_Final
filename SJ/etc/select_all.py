@@ -7,8 +7,11 @@ cur = con.cursor()
 cur.execute("desc pro_info")
 print([column[0] for column in cur.fetchall()])
 
-sql='select * from pro_info'
+#sql='select idproducts from timetable where date1=%s'
+sql='select * from timetable'
 num=cur.execute(sql)
+#num=cur.execute(sql,(date))
+print(num)
 row=cur.fetchall()
 for i in range(num):
     print(row[i])
