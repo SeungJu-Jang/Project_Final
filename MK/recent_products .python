@@ -1,0 +1,22 @@
+import pymysql
+
+con = pymysql.connect(host="192.168.0.19", user="root", password="1234",
+                       db='mydb', charset='utf8', autocommit=True)
+curs = con.cursor()
+
+
+sql="SELECT idproducts FROM timetable ORDER BY date1 DESC LIMIT 1"
+idx = curs.execute(sql)
+data = curs.fetchone()
+
+for j in range(0,idx):
+    datalist = data[j]
+    print("가장 최근 입력된 idproducts : %s"%datalist)
+    
+sql2="select * from pro_info where idproducts = %s"
+idx2 = curs.execute(sql2,(datalist))
+
+for a in range(0,idx2):
+    data2 = curs.fetchone()
+    for b in data2:
+        print(b)
