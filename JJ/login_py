@@ -1,0 +1,37 @@
+import pymysql
+
+con = pymysql.connect(host="192.168.0.19", user="root",
+                      password="1234", db="mydb", charset="utf8")
+while True:
+    user_id = input("아이디 입력 창>>")
+    user_pw = input("비밀번호 입력 창>>")
+
+    cur = con.cursor()
+    num = input("4를 입력시 로그인>>")
+
+    if num == '4':
+        sql = "SELECT pw FROM user_info WHERE id = %s"
+        num = cur.execute(sql, (user_id))
+        data = cur.fetchone()
+            
+        try:
+            for j in range(0, num):
+                for i in range(0, 2):
+                    data_employee = data[j]
+            if data_employee == user_pw:
+                print("로그인 성공")
+                
+                sql_pos = "SELECT position FROM user_info WHERE id = %s"
+                num_pos = cur.execute(sql_pos,(user_id))
+                data_pos = cur.fetchone()
+
+                for a in range(0, num_pos):
+                    for b in range(0, 2):
+                        data_position = data_pos[a]
+                print("직책"+data_position)
+            else:
+                print("로그인 실패! ID와 비밀번호를 다시 확인해 주세요")
+        except:
+            print("로그인 실패! 아이디와 비밀번호를 다시 확인해 주세요")
+    else:
+        print("로그인 오류")
