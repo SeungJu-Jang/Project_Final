@@ -1,0 +1,64 @@
+import pymysql
+
+con = pymysql.connect(host="192.168.0.19", user="root", password="1234",
+                       db='mydb', charset='utf8', autocommit=True)
+curs = con.cursor()
+
+
+sql = "SELECT idproducts FROM timetable ORDER BY date1 DESC LIMIT 1"
+idx = curs.execute(sql)
+data = curs.fetchone()
+
+for i in range(0,idx):
+    datalist = data[i]
+    print(datalist)
+
+sql1 = "SELECT idproducts FROM pro_info where idproducts = %s"
+idx1 = curs.execute(sql1,datalist)
+data1 = curs.fetchone()
+
+for a in range(0,idx1):
+    datalist1 = data1[a]
+    print(datalist1)
+    
+
+sql2 = "SELECT brand FROM pro_info where idproducts = %s"
+idx2 = curs.execute(sql2,datalist)
+data2 = curs.fetchone()
+
+for b in range(0,idx2):
+    datalist2 = data2[b]
+    print(datalist2)
+
+sql3 = "SELECT model FROM pro_info where idproducts = %s"
+idx3 = curs.execute(sql3,datalist)
+data3 = curs.fetchone()
+
+for c in range(0,idx3):
+    datalist3 = data3[c]
+    print(datalist3)
+
+sql4 = "SELECT codenum FROM pro_info where idproducts = %s"
+idx4 = curs.execute(sql4,datalist)
+data4 = curs.fetchone()
+
+for d in range(0,idx4):
+    datalist4 = data4[d]
+    print(datalist4)
+
+sql5 = "SELECT unitprice FROM pro_info where idproducts = %s"
+idx5 = curs.execute(sql5,datalist)
+data5 = curs.fetchone()
+
+for e in range(0,idx5):
+    datalist5 = data5[b]
+    print(datalist5)
+    
+sql6 = "SELECT inventory FROM pro_info where idproducts = %s"
+idx6 = curs.execute(sql6,datalist)
+data6 = curs.fetchone()
+
+for e in range(0,idx6):
+    datalist6 = data6[b]
+    print(datalist6)
+    
