@@ -1,0 +1,57 @@
+    
+import sys
+import socket
+import threading
+import pymysql
+
+
+HOST = ''
+PORT = 8080
+
+s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+print('Socket created')
+try:
+    s.bind((HOST, PORT))
+except scoket.error as msg:
+    print('Bind Failed. Error code : ' + str(msg[0]) + ' Message: ' + msg[1])
+
+print('Bind success')
+s.listen(10)
+print('Socket now listening')
+flag = 0
+
+while True:
+    conn, addr = s.accept()
+    
+    if flag == 0:
+        print(str(addr) + ' - Connection.')
+
+    data = conn.recv(1024).decode('utf8')
+
+    print(type(data))
+    print('\nReceive Data => ' + data)
+
+    if data.strip() == "4":
+        print("data == 4")
+        con = pymysql.connect(host="192.168.0.19", user="root", password="1234", db="mydb", charset="utf8", autocommit=True)
+        curs = con.cursor()
+
+        data4_sql = "select * from user_info"
+        data4_usernum = curs.execute(data4_sql)
+
+        print("usernum : %s" %data4_usernum)
+        conn.send(str(data4_usernum).encode('utf_8'))
+
+        for i in range(0,data4_usernum):
+            data4_user = [i for i in curs.fetchone()]
+            print(data4_user)
+            conn.send(str(data4_user).encode('utf8'))
+
+        print("success")
+
+    if not data:
+        print("It's unuseable Data!")
+        flag = 0
+
+    flag = 1
