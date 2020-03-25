@@ -6,6 +6,7 @@ cur = con.cursor()
 print("원하는 날짜를 입력 하시오 예) 2020-03-24")
 date=str(input())
 cnt=0
+sales_sum=0
 
 sql='select idproducts from pro_info'
 num_goods=cur.execute(sql)
@@ -23,9 +24,13 @@ for i in range(num_goods):
             cnt+=1
     print(cnt)
     sql="select unitprice from pro_info where idproducts=%s"
-    num_price=cur.execute(sql,(go20ods_li[i]))
+    num_price=cur.execute(sql,(goods_li[i]))
     price=[column[0] for column in cur.fetchall()]
     sales=int(price[0])*cnt
     print("{0}번 상품 판매금액: {1}".format(goods_li[i],sales))
     cnt=0
+    sales_sum+=sales
+    
+day_total=sales_sum
+print(day_total)
     
