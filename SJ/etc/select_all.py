@@ -8,7 +8,7 @@ cur.execute("desc graph")
 print([column[0] for column in cur.fetchall()])
 
 #sql='select idproducts from timetable where date1=%s'
-sql='select * from pro_info'
+sql='select * from timetable'
 num=cur.execute(sql)
 #num=cur.execute(sql,(date))
 print(num)
