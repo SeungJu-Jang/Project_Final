@@ -11,7 +11,6 @@ cnt=0
 
 
 sql='select idproducts from timetable where date1=%s'
-
 num=cur.execute(sql,(date))
 goods_li=[data[0] for data in cur.fetchall()]
 try:
