@@ -1,12 +1,21 @@
 import pymysql
 import matplotlib.pyplot as plt
+import matplotlib.font_manager as fm
 
 con = pymysql.connect(host="192.168.0.19", user="root", password="1234",db='mydb', charset='utf8')
+
+fm.get_fontconfig_fonts()
+font_location = 'C:/windows/Fonts/namsan.ttf'
+#font_location = 'C:/Users/JSJ_Note_Book/Documents/카카오톡 받은 파일/namsan.ttf'
+
+font_name= fm.FontProperties(fname=font_location).get_name()
+plt.rc('font', family=font_name)
 
 cur = con.cursor()
 print("원하는 날짜를 입력 하시오 예) 2020-03-24")
 date=str(input())
 cnt=0
+
 sales_sum=0
 plot_cnt=[]
 
@@ -50,15 +59,15 @@ print("{0} 날짜 매출 : {1}".format(date,day_total))
 
 #plot 그리기
 
-
+day=str(day_total)
 x = plot_model
 y = plot_cnt
 
 plt.bar(x,y, align='center', color ='#0a326f')
 
-plt.xlabel('goods_number')
-plt.ylabel('sales rate')
-plt.title(date)
+plt.xlabel('금일 총 매출 : ' + day + '원', fontsize=15, color ='#0a326f')
+plt.ylabel('판매량')
+plt.title(date +'일 매출', fontsize = 30,color ='#0a326f')
 plt.savefig('da_test.png', format='png', dpi=150)
 plt.show()
 
