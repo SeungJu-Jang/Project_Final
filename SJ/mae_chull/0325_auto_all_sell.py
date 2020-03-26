@@ -5,7 +5,7 @@ import matplotlib.font_manager as fm
 con = pymysql.connect(host="192.168.0.19", user="root", password="1234",db='mydb', charset='utf8')
 
 fm.get_fontconfig_fonts()
-font_location = 'C:/windows/Fonts/namsan.ttf'
+font_location = 'C:/Windows/Fonts/malgun.ttf'
 #font_location = 'C:/Users/JSJ_Note_Book/Documents/카카오톡 받은 파일/namsan.ttf'
 
 font_name= fm.FontProperties(fname=font_location).get_name()
