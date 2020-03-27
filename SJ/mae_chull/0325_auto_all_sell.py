@@ -26,7 +26,7 @@ goods_li=[data[0] for data in cur.fetchall()]
 
 #plot 차트 X 축 상품 모델명
 sql='select model from pro_info'
-num_price=cur.execute(sql)
+cur.execute(sql)
 plot_model=[column[0] for column in cur.fetchall()]
 print(plot_model)
 
@@ -44,12 +44,12 @@ for i in range(num_goods):
             cnt+=1
             
     sql="select unitprice from pro_info where idproducts=%s"
-    num_price=cur.execute(sql,(goods_li[i]))
+    cur.execute(sql,(goods_li[i]))
     price=[column[0] for column in cur.fetchall()]
     
     sales=int(price[0])*cnt
     print("{0}번 상품 판매금액: {1}".format(goods_li[i],sales))
-    plot_cnt.append(cnt)
+    plot_cnt.append(sales)
     cnt=0
     #plot_price.append(cnt*price[0])
     #print(plot_price)
@@ -73,6 +73,6 @@ plt.show()
 
 
 # graph 테이블 데이터 입력
-#sql='insert into graph (date1, price) values (%s, %s)'
-#cur.execute(sql,(date,day_total))
-#con.commit()
+sql='insert into graph (date1, price) values (%s, %s)'
+cur.execute(sql,(date,day_total))
+con.commit()
