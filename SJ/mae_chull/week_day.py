@@ -19,11 +19,11 @@ plt.rc('font', family=font_name)
 cur = con.cursor()
 
 sql='select date1 from graph'
-num_day=cur.execute(sql)
+cur.execute(sql)
 plot_day=[column[0] for column in cur.fetchall()]
 
 sql='select price from graph'
-num_goods=cur.execute(sql)
+cur.execute(sql)
 plot_day_price=[column[0] for column in cur.fetchall()]
 
 week=str(plot_day_price)

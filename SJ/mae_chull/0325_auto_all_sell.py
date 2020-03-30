@@ -46,7 +46,6 @@ for i in range(num_goods):
     sql="select unitprice from pro_info where idproducts=%s"
     cur.execute(sql,(goods_li[i]))
     price=[column[0] for column in cur.fetchall()]
-    
     sales=int(price[0])*cnt
     print("{0}번 상품 판매금액: {1}".format(goods_li[i],sales))
     plot_cnt.append(sales)
@@ -68,11 +67,11 @@ plt.bar(x,y, align='center', color ='#0a326f')
 plt.xlabel('금일 총 매출 : ' + day + '원', fontsize=15, color ='#0a326f')
 plt.ylabel('판매량')
 plt.title(date +'일 매출', fontsize = 30,color ='#0a326f')
-plt.savefig('da_test.png', format='png', dpi=150)
+#plt.savefig('da_test.png', format='png', dpi=150)
 plt.show()
 
 
 # graph 테이블 데이터 입력
-sql='insert into graph (date1, price) values (%s, %s)'
-cur.execute(sql,(date,day_total))
-con.commit()
+#sql='insert into graph (date1, price) values (%s, %s)'
+#cur.execute(sql,(date,day_total))
+#con.commit()

@@ -2,7 +2,7 @@ import pymysql
 import matplotlib.pyplot as plt
 import matplotlib.font_manager as fm
 
-con = pymysql.connect(host="192.168.0.19", user="root", password="1234",db='mydb', charset='utf8')
+con = pymysql.connect(host="192.168.0.2", user="root", password="1234",db='mydb', charset='utf8')
 
 cur = con.cursor()
    
