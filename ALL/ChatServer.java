@@ -6,7 +6,7 @@ import java.net.InetAddress;
 import java.util.*;
 
 public class ChatServer{
-	int port = 9000;
+	int port = 8000;
 	ServerSocket server;
 	InputStream is;
 
